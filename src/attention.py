@@ -40,7 +40,7 @@ class SelfAttentionV(nn.Module):
         queries=self.W_query(x)
 
         attention_score= queries@keys.T
-        attention_weights= torch.softmax(attention_score/queries.shape[-1], dim=-1)
+        attention_weights= torch.softmax(attention_score/queries.shape[-1]**0.5, dim=-1)
 
         context_vectors=attention_weights@values
 
