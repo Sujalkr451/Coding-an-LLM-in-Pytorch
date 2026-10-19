@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 930" role="img" aria-labelledby="title description">
+  <title id="title">A hand-drawn PyTorch coding sketch</title>
+  <desc id="description">A loose digital-whiteboard sketch of an LLM pipeline, a confused little computer, and tensor shapes.</desc>
+  <defs>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#d8d2c8" opacity=".38"/>
+    </pattern>
+    <style>
+      .ink { fill: none; stroke: #252525; stroke-linecap: round; stroke-linejoin: round; }
+      .note { font: 26px "Marker Felt", "Comic Sans MS", "Bradley Hand", cursive; fill: #242424; }
+      .small { font: 20px "Marker Felt", "Comic Sans MS", "Bradley Hand", cursive; fill: #242424; }
+      .label { font: 25px "Marker Felt", "Comic Sans MS", "Bradley Hand", cursive; fill: #242424; }
+    </style>
+  </defs>
+
+  <rect width="1400" height="930" fill="#fbfaf7"/>
+  <rect width="1400" height="930" fill="url(#dots)"/>
+
+  <g transform="rotate(-1.2 700 70)">
+    <path class="ink" stroke-width="4" d="M185 86 Q450 91 728 83 T1210 87"/>
+    <text x="700" y="67" text-anchor="middle" class="note" font-size="44">building a tiny LLM (and guessing tensor shapes)</text>
+  </g>
+
+  <g transform="rotate(-1 165 181)">
+    <path d="M54 129 Q102 122 267 131 L271 213 Q179 218 57 211 Z" fill="#f5edff" stroke="#292929" stroke-width="3.5" stroke-linejoin="round"/>
+    <path class="ink" stroke-width="1.7" d="M59 134 Q145 127 263 135 M63 208 Q172 215 267 209"/>
+    <text x="161" y="174" text-anchor="middle" class="label">tokens</text>
+    <text x="161" y="198" text-anchor="middle" class="small">"hello, model"</text>
+  </g>
+  <path class="ink" stroke="#d66b35" stroke-width="4" d="M291 171 Q324 163 352 170 M340 159 L355 170 L339 180"/>
+
+  <g transform="rotate(1.4 463 178)">
+    <path d="M371 131 Q475 125 557 134 L560 211 Q470 215 368 208 Z" fill="#e7f3f4" stroke="#292929" stroke-width="3.5" stroke-linejoin="round"/>
+    <path class="ink" stroke-width="1.8" d="M376 136 Q460 129 553 138 M373 205 Q475 212 555 207"/>
+    <text x="465" y="168" text-anchor="middle" class="label">embedding</text>
+    <text x="465" y="194" text-anchor="middle" class="small">vectors, somehow</text>
+  </g>
+  <path class="ink" stroke="#d66b35" stroke-width="4" d="M574 171 Q607 166 632 172 M620 160 L635 172 L619 181"/>
+
+  <g transform="rotate(-1.2 749 178)">
+    <path d="M649 132 Q748 127 846 134 L850 212 Q746 216 647 207 Z" fill="#fff0df" stroke="#292929" stroke-width="3.5" stroke-linejoin="round"/>
+    <path class="ink" stroke-width="1.6" d="M654 137 Q757 130 842 139 M651 204 Q751 214 845 208"/>
+    <text x="750" y="167" text-anchor="middle" class="label">causal attention</text>
+    <text x="750" y="194" text-anchor="middle" class="small">look left, not right!</text>
+  </g>
+  <path class="ink" stroke="#d66b35" stroke-width="4" d="M862 171 Q895 164 920 171 M908 159 L923 171 L907 181"/>
+
+  <g transform="rotate(1 1050 178)">
+    <path d="M937 131 Q1056 125 1176 134 L1172 210 Q1050 216 939 208 Z" fill="#f1edff" stroke="#292929" stroke-width="3.5" stroke-linejoin="round"/>
+    <path class="ink" stroke-width="1.7" d="M943 136 Q1040 129 1171 139 M943 204 Q1060 211 1168 207"/>
+    <text x="1056" y="169" text-anchor="middle" class="label">next token!</text>
+    <text x="1056" y="194" text-anchor="middle" class="small">please be a word</text>
+  </g>
+
+  <g transform="rotate(-4 160 378)">
+    <path class="ink" stroke="#8a7458" stroke-width="2.3" d="M53 296 Q121 287 237 299 L232 431 Q142 439 48 427 Z"/>
+    <path class="ink" stroke="#8a7458" stroke-width="1.6" d="M61 305 L226 302 M56 423 Q139 431 226 424"/>
+    <text x="142" y="340" text-anchor="middle" class="small">it worked</text>
+    <text x="142" y="366" text-anchor="middle" class="small">yesterday?</text>
+    <text x="142" y="397" text-anchor="middle" class="note">why though</text>
+  </g>
+
+  <g transform="rotate(2 1194 374)">
+    <path class="ink" stroke="#d55b48" stroke-width="3.2" d="M1082 299 Q1190 291 1321 302 L1315 431 Q1197 437 1080 426 Z"/>
+    <path class="ink" stroke="#d55b48" stroke-width="1.7" d="M1088 306 Q1195 300 1315 308 M1087 421 Q1210 431 1311 424"/>
+    <text x="1200" y="337" text-anchor="middle" class="label" fill="#c94d3d">RuntimeError</text>
+    <text x="1200" y="374" text-anchor="middle" class="small">mat1 and mat2</text>
+    <text x="1200" y="400" text-anchor="middle" class="small">cannot be multiplied</text>
+  </g>
+
+  <g transform="rotate(-2 690 480)">
+    <path class="ink" stroke-width="5" d="M548 363 Q585 342 646 355 Q717 343 780 360 Q836 359 848 405 L841 526 Q825 556 771 551 Q697 560 621 548 Q569 558 545 531 L541 415 Q532 385 548 363 Z" fill="#fffefa"/>
+    <path class="ink" stroke-width="2" d="M552 370 Q624 351 700 364 Q786 352 834 377 M548 529 Q626 541 695 536 Q776 547 833 528"/>
+    <path class="ink" stroke-width="3.5" d="M609 355 Q598 329 620 316 M620 316 Q640 302 650 325"/>
+    <path class="ink" stroke="#d66b35" stroke-width="3" d="M620 316 Q625 304 634 307"/>
+    <path class="ink" stroke-width="4" d="M579 422 Q590 394 622 397 Q654 400 659 429 M733 427 Q741 395 775 399 Q805 404 807 434"/>
+    <ellipse cx="620" cy="425" rx="9" ry="15" fill="#252525" transform="rotate(5 620 425)"/>
+    <ellipse cx="772" cy="429" rx="9" ry="15" fill="#252525" transform="rotate(-5 772 429)"/>
+    <path class="ink" stroke-width="4" d="M668 472 Q689 457 710 473 Q698 495 680 489 Z"/>
+    <path class="ink" stroke="#d66b35" stroke-width="4" d="M582 471 Q592 478 603 474 M789 480 Q802 486 812 478"/>
+    <path class="ink" stroke-width="3" d="M610 549 Q599 577 585 587 M777 549 Q792 574 808 582"/>
+    <path class="ink" stroke-width="3" d="M567 445 Q540 441 530 457 M837 449 Q858 440 872 454"/>
+    <path class="ink" stroke="#8c79bd" stroke-width="3" d="M564 383 Q550 373 546 359 M814 380 Q829 366 831 353"/>
+    <path class="ink" stroke="#d66b35" stroke-width="2.5" d="M687 351 L682 337 M706 353 L712 337 M727 357 L737 344"/>
+    <text x="695" y="520" text-anchor="middle" class="small">little model, big feelings</text>
+  </g>
+
+  <g transform="rotate(3 340 529)">
+    <path class="ink" stroke-width="3" d="M243 474 Q316 465 420 474 L414 552 Q319 562 241 550 Z" fill="#fff3a8"/>
+    <path class="ink" stroke-width="1.5" d="M249 480 Q329 470 415 480 M246 546 Q331 554 410 547"/>
+    <text x="330" y="504" text-anchor="middle" class="small">I know 12</text>
+    <text x="330" y="530" text-anchor="middle" class="small">languages.</text>
+    <text x="330" y="551" text-anchor="middle" class="small">Not tensor.</text>
+  </g>
+
+  <g transform="rotate(-4 1083 535)">
+    <path class="ink" stroke-width="3" d="M1002 473 Q1097 468 1198 477 L1193 552 Q1100 561 1000 549 Z" fill="#f2edff"/>
+    <path class="ink" stroke-width="1.4" d="M1008 480 Q1110 471 1192 482 M1005 545 Q1092 556 1188 548"/>
+    <text x="1100" y="509" text-anchor="middle" class="label">[ B, T, C ]</text>
+    <text x="1100" y="536" text-anchor="middle" class="small">batch, time, confusion</text>
+  </g>
+
+  <g transform="rotate(-2 698 698)">
+    <path class="ink" stroke="#8c79bd" stroke-width="7" d="M176 640 Q400 655 644 643 T1223 647"/>
+    <path class="ink" stroke="#8c79bd" stroke-width="2" d="M199 650 Q449 660 688 650 T1198 653"/>
+    <text x="700" y="710" text-anchor="middle" class="note" font-size="38">trained on the internet. defeated by a dimension.</text>
+  </g>
+
+  <path class="ink" stroke="#555" stroke-width="2.5" d="M400 601 Q448 581 501 561"/>
+  <path class="ink" stroke="#555" stroke-width="2.5" d="M490 557 L502 560 L494 571"/>
+  <text x="353" y="624" class="small" transform="rotate(-8 353 624)">check the shape</text>
+  <path class="ink" stroke="#555" stroke-width="2.2" d="M977 577 Q932 583 884 559"/>
+  <path class="ink" stroke="#555" stroke-width="2.2" d="M893 554 L882 558 L890 567"/>
+  <text x="962" y="604" class="small" transform="rotate(5 962 604)">it is always the shape</text>
+
+  <g transform="rotate(-5 686 816)">
+    <path class="ink" stroke-width="2" d="M344 777 Q466 768 576 776 L573 836 Q455 845 342 835 Z"/>
+    <text x="459" y="801" text-anchor="middle" class="small">logits = model(tokens)</text>
+    <text x="459" y="827" text-anchor="middle" class="small">loss.backward()  ↗</text>
+  </g>
+  <g transform="rotate(4 832 815)">
+    <path class="ink" stroke="#d66b35" stroke-width="3" d="M715 795 Q770 778 827 790 M812 780 L829 790 L812 800"/>
+    <text x="862" y="813" class="small">optimizer.step()</text>
+  </g>
+  <path class="ink" stroke="#8c79bd" stroke-width="2.5" d="M1256 179 Q1281 168 1304 181 M1268 198 Q1290 189 1310 199"/>
+  <path class="ink" stroke="#d66b35" stroke-width="2.5" d="M89 247 Q103 230 115 236 M116 244 L126 231"/>
+</svg>
