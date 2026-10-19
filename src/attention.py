@@ -11,9 +11,9 @@ class SelfAttention(nn.Module):
         self.W_queries=nn.Parameter(torch.rand(d_in,d_out), requires_grad=False)
 
     def forward(self,x):
-        keys=x @ self.W_keys.T 
-        values=x @ self.W_values.T 
-        queries=x @ self.W_queries.T 
+        keys=x @ self.W_keys
+        values=x @ self.W_values
+        queries=x @ self.W_queries
 
         attention_scores= ((queries @ keys.T)/(keys.shape[-1])**0.5)
         attention_weights= torch.softmax(attention_scores, dim=-1)
