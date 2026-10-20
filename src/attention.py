@@ -46,3 +46,42 @@ class SelfAttentionV(nn.Module):
 
         return context_vectors
 
+
+"""
+Implementation of causal attention
+
+"""
+
+
+class CausalAttention(nn.Module):
+    def __init__(self,d_in,d_out,dropout=0.2,qkv_bias=False):
+        super().__init__()
+
+        self.w_query=nn.Linear(d_in,d_out, bias=qkv_bias)
+        self.w_key=nn.Linear(d_in,d_out,bias=qkv_bias)
+        self.w_value=nn.Linear(d_in,d_out,bias=qkv_bias)
+        self.Dropout=nn.Dropout2d(dropout)
+
+    def forward(self,x):
+        query=self.w_query(x)
+        key=self.w_key(x)
+        value=self.w_value(x)
+
+        context_length=x.shape[0] #number of token
+
+        attention_score=query @ key.T
+
+        mask= torch.triu(torch.ones(context_length, context_length), diagonal=1)
+
+        masked= attention_score.masked_fill(mask.bool(), -torch.inf)
+
+        attention_weight=torch.softmax(attention_score/key.shape[-1]**0.5, dim=-1)
+
+        self.Dropout(masked)
+
+        context_vector= masked@value
+
+        return context_vector
+
+
+
