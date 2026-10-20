@@ -54,34 +54,39 @@ Implementation of causal attention
 
 
 class CausalAttention(nn.Module):
-    def __init__(self,d_in,d_out,dropout=0.2,qkv_bias=False):
+    def __init__(self,d_in,d_out, context_length,dropout=0.2,qkv_bias=False):
         super().__init__()
 
         self.w_query=nn.Linear(d_in,d_out, bias=qkv_bias)
         self.w_key=nn.Linear(d_in,d_out,bias=qkv_bias)
         self.w_value=nn.Linear(d_in,d_out,bias=qkv_bias)
         self.Dropout=nn.Dropout2d(dropout)
+        self.register_buffer('mask', torch.triu(torch.ones(context_length,context_length), diagonal=1))
 
     def forward(self,x):
+
+        b,num_token,d_in=x.shape #[batch,token,dimension]
+
         query=self.w_query(x)
         key=self.w_key(x)
         value=self.w_value(x)
 
         context_length=x.shape[0] #number of token
 
-        attention_score=query @ key.T
+        attention_scores=query @ key.transpose(1,2)
 
-        mask= torch.triu(torch.ones(context_length, context_length), diagonal=1)
+        attention_scores.masked_fill(
+            self.mask.bool()[:num_token, :num_token], -torch.inf
+        )
 
-        masked= attention_score.masked_fill(mask.bool(), -torch.inf)
+        attention_weights=torch.softmax(
+            attention_scores/ key.shape[-1]**0.5, dim=-1
+        )
 
-        attention_weight=torch.softmax(attention_score/key.shape[-1]**0.5, dim=-1)
+        attention_weights= self.Dropout(attention_weights)
 
-        self.Dropout(masked)
-
-        context_vector= masked@value
+        context_vector= attention_weights@ value
 
         return context_vector
-
 
 
