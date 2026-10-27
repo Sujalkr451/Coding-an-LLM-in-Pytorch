@@ -37,11 +37,13 @@ class MultiHeadAttention(nn.Module):
         attn_weights = torch.softmax(attention_score / keys.shape[-1]**0.5, dim=-1)
 
         attn_weights = self.dropout(attn_weights)
-        context_vec = (attn_weights @ values).transpose(1, 2) 
+        context_vec = (attn_weights @ values).transpose(1, 2) # we want the original dimension back for embedding vectors
 
 
-        context_vec = context_vec.contiguous().view(b, num_tokens, self.d_out)
-        context_vec = self.out_proj(context_vec) # optional projection
+
+        context_vec = context_vec.contiguous().view(b, num_tokens, self.d_out) #contiguous to make sure they are in same memory block
+        
+        context_vec = self.out_proj(context_vec) # optional 
         
         return context_vec
 
